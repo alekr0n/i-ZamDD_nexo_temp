@@ -77,36 +77,67 @@
                            VerticalAlignment="Center">Grupa:</TextBlock>
                 <TextBlock Grid.Row="1" Grid.Column="0" Margin="5 0 0 0"
                            VerticalAlignment="Center">Cecha:</TextBlock>
-                <ComboBox Grid.Row="0" Grid.Column="1" Margin="5">
-                    grupa
-                </ComboBox>
-                <ComboBox Grid.Row="1" Grid.Column="1" Margin="5">
-                    cecha
-                </ComboBox>
+                <telerik:RadMultiColumnComboBox Grid.Row="0" Grid.Column="1" Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="1" Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+
                 <TextBlock Grid.Row="0" Grid.Column="2" Margin="0 0 5 0"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right">Dostawcz:</TextBlock>
                 <TextBlock Grid.Row="1" Grid.Column="2" Margin="0 0 5 0"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right">Producent:</TextBlock>
-                <ComboBox Grid.Row="0" Grid.Column="3" Margin="5">
-                    dostawca
-                </ComboBox>
-                <ComboBox Grid.Row="1" Grid.Column="3" Margin="5">
-                    producent
-                </ComboBox>
+                <telerik:RadMultiColumnComboBox Grid.Row="0" Grid.Column="3" Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="3" Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
                 <TextBlock Grid.Row="0" Grid.Column="4" Margin="0 0 5 0" 
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right">Flaga:</TextBlock>
                 <TextBlock Grid.Row="1" Grid.Column="4" Margin="0 0 5 0" 
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right">Magazyn:</TextBlock>
-                <ComboBox Grid.Row="0" Grid.Column="5" Margin="5">
-                    flaga
-                </ComboBox>
-                <ComboBox Grid.Row="1" Grid.Column="5" Margin="5">
-                    magazyn
-                </ComboBox>
+                <telerik:RadMultiColumnComboBox Grid.Row="0" Grid.Column="5" Margin="5"
+                          SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="5" Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
                 <telerik:RadToggleButton Grid.Row="0" Grid.Column="6" Margin="5">Auto zaznaczenie</telerik:RadToggleButton>
                 <telerik:RadToggleButton Grid.Row="1" Grid.Column="6" Margin="5">Auto wyliczanie ilości</telerik:RadToggleButton>
                 <telerik:RadToggleButton Grid.Row="1" Grid.Column="7" Margin="5">Kolumny</telerik:RadToggleButton>
