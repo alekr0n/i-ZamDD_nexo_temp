@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="TelerikWpfApp3.ctr_control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TelerikWpfApp3"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="500"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="56"/>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <telerik:Label Grid.Column="0" Margin="5 5 0 5">Nazwa:</telerik:Label>
+            <TextBox Grid.Column="1" Margin="0 5 5 5"></TextBox>
+            <CheckBox Grid.Column="2" VerticalAlignment="Center">
+                Globalny
+            </CheckBox>
+        </Grid>
+        <telerik:GroupBox Grid.Row="1" Header="Filtry">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="71"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <telerik:Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Grupa:</telerik:Label>
+                <telerik:RadMultiColumnComboBox Grid.Column="1" Grid.Row="0"
+                                                Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Cecha:</telerik:Label>
+                <telerik:RadMultiColumnComboBox Grid.Column="1" Grid.Row="1"
+                                                Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">Dostawca:</telerik:Label>
+                <telerik:RadMultiColumnComboBox Grid.Column="3" Grid.Row="0"
+                                                Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0" Background="White"/>
+                <telerik:Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">Producent:</telerik:Label>
+                <telerik:RadMultiColumnComboBox Grid.Column="3" Grid.Row="1"
+                                                Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Right">Flaga:</telerik:Label>
+                <telerik:RadMultiColumnComboBox Grid.Column="5" Grid.Row="0"
+                                                Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:Label Grid.Row="1" Grid.Column="4" HorizontalAlignment="Right">Magazyn:</telerik:Label>
+                <telerik:RadMultiColumnComboBox Grid.Column="5" Grid.Row="1"
+                                                Margin="5"
+                                                SelectionMode="Multiple"
+                                                AutoCompleteMode="SuggestAppend"
+                                                KeepDropDownOpen="False"
+                                                DropDownWidth="170"
+                                                DropDownMinHeight="30"
+                                                DropDownMaxHeight="120"
+                                                EditorMinWidth="0"/>
+                <telerik:RadGridView Grid.Row="2" Grid.ColumnSpan="6"
+                                     Width="785"
+                                     RowIndicatorVisibility="Collapsed"
+                                     IsReadOnly="True"
+                                     ShowColumnSortIndexes="True"
+                                     AutoGenerateColumns="False"
+                                     CanUserFreezeColumns="False"
+                                     CanUserResizeColumns="False"
+                                     EnableMouseWheelScaling="True">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewCheckBoxColumn Header="Aktywne" 
+                                                        Width="55" 
+                                                        HeaderTextAlignment="Center"
+                                                        TextAlignment="Center"/>
+                        <telerik:GridViewDataColumn Header="Typ" 
+                                                    Width="30" 
+                                                    HeaderTextAlignment="Center"
+                                                    TextAlignment="Center"/>
+                        <telerik:GridViewDataColumn Header="Nazwa"
+                                                    Width="180*" 
+                                                    HeaderTextAlignment="Center"
+                                                    TextAlignment="Left"/>
+                        <telerik:GridViewDataColumn Header="Nazwa wyświetlana" 
+                                                    Width="150" 
+                                                    HeaderTextAlignment="Center"
+                                                    TextAlignment="Left"/>
+                        <telerik:GridViewDataColumn Header="Formatowanie" 
+                                                    Width="70"
+                                                    HeaderTextAlignment="Center"
+                                                    TextAlignment="Left"/>
+                        <telerik:GridViewDataColumn Header="Kolejność"
+                                                    Width="60" 
+                                                    HeaderTextAlignment="Center"
+                                                    TextAlignment="Right"/>
+                        <telerik:GridViewDataColumn Header="Wyrównanie"
+                                                    Width="" 
+                                                    HeaderTextAlignment="Center"
+                                                    TextAlignment="Left"/>
+                        <telerik:GridViewColumn Header="Edytuj" 
+                                                Width="60" 
+                                                HeaderTextAlignment="Center"
+                                                TextAlignment="Center"/>
+                        <telerik:GridViewColumn Header="Usuń" 
+                                                Width="60" 
+                                                HeaderTextAlignment="Center"
+                                                TextAlignment="Center"/>
+
+                    </telerik:RadGridView.Columns>
+                    
+                </telerik:RadGridView>
+            </Grid>
+        </telerik:GroupBox>
+
+    </Grid>
+</UserControl>
