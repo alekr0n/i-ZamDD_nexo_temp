@@ -3,18 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TelerikWpfApp3"
+             xmlns:local="clr-namespace:TelerikWpfApp3" d:DataContext="{d:DesignInstance Type=local:DataBase}"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1440">
-    <UserControl.Resources>
-        <local:MyComboBoxList x:Key="MyComboBoxList1"/>
-
-        <DataTemplate x:Key="GrupaSearch">
-            <StackPanel>
-                <TextBlock Text="{Binding Nazwa}"/>
-            </StackPanel>
-        </DataTemplate>
-    </UserControl.Resources>
+    
     
     <Grid>
         <Grid.RowDefinitions>
@@ -90,8 +82,6 @@
                            VerticalAlignment="Center">Cecha:</TextBlock>
                 <telerik:RadMultiColumnComboBox Grid.Row="0" Grid.Column="1" Margin="5"
                                                 NullText="Wybierz grupę..."
-                                                x:Name="grupaComboBox"
-                                                
                                                 SelectionMode="Multiple"
                                                 AutoCompleteMode="SuggestAppend"
                                                 KeepDropDownOpen="False"
@@ -100,12 +90,11 @@
                                                 DropDownMaxHeight="120"
                                                 EditorMinWidth="0">
                     <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
-                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding GrupaList}" AutoGenerateColumns="False">
-                            <telerik:GridViewItemsSourceProvider.Columns>
-                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Nazwa}" Header=""/>
-                            </telerik:GridViewItemsSourceProvider.Columns>
-                            
-                        </telerik:GridViewItemsSourceProvider>
+                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding Grupa}" 
+                                                             AutoGenerateColumns="True" 
+                                                             ShowColumnHeaders="False" 
+                                                             ColumnWidth="*"
+                                                             IsReadOnly="True"/>
                     </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
                 </telerik:RadMultiColumnComboBox>
                 <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="1" Margin="5"
@@ -116,7 +105,15 @@
                                                 DropDownWidth="170"
                                                 DropDownMinHeight="30"
                                                 DropDownMaxHeight="120"
-                                                EditorMinWidth="0"/>
+                                                EditorMinWidth="0">
+                    <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding Cecha}" 
+                                                             AutoGenerateColumns="True" 
+                                                             ShowColumnHeaders="False" 
+                                                             ColumnWidth="*"
+                                                             IsReadOnly="True"/>
+                    </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                </telerik:RadMultiColumnComboBox>
 
                 <TextBlock Grid.Row="0" Grid.Column="2" Margin="0 0 5 0"
                            VerticalAlignment="Center"
@@ -132,7 +129,15 @@
                                                 DropDownWidth="170"
                                                 DropDownMinHeight="30"
                                                 DropDownMaxHeight="120"
-                                                EditorMinWidth="0"/>
+                                                EditorMinWidth="0">
+                    <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding Dostawca}" 
+                                                             AutoGenerateColumns="True" 
+                                                             ShowColumnHeaders="False" 
+                                                             ColumnWidth="*"
+                                                             IsReadOnly="True"/>
+                    </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                </telerik:RadMultiColumnComboBox>
                 <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="3" Margin="5"
                                                 NullText="Wybierz producenta..."
                                                 SelectionMode="Multiple"
@@ -141,7 +146,15 @@
                                                 DropDownWidth="170"
                                                 DropDownMinHeight="30"
                                                 DropDownMaxHeight="120"
-                                                EditorMinWidth="0"/>
+                                                EditorMinWidth="0">
+                    <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding Producent}" 
+                                                             AutoGenerateColumns="True" 
+                                                             ShowColumnHeaders="False" 
+                                                             ColumnWidth="*"
+                                                             IsReadOnly="True"/>
+                    </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                </telerik:RadMultiColumnComboBox>
                 <TextBlock Grid.Row="0" Grid.Column="4" Margin="0 0 5 0" 
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right">Flaga:</TextBlock>
@@ -156,7 +169,15 @@
                                                 DropDownWidth="170"
                                                 DropDownMinHeight="30"
                                                 DropDownMaxHeight="120"
-                                                EditorMinWidth="0"/>
+                                                EditorMinWidth="0">
+                    <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding Flaga}" 
+                                                             AutoGenerateColumns="True" 
+                                                             ShowColumnHeaders="False" 
+                                                             ColumnWidth="*"
+                                                             IsReadOnly="True"/>
+                    </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                </telerik:RadMultiColumnComboBox>
                 <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="5" Margin="5"
                                                 NullText="Wybierz magazyn..."
                                                 SelectionMode="Multiple"
@@ -165,7 +186,15 @@
                                                 DropDownWidth="170"
                                                 DropDownMinHeight="30"
                                                 DropDownMaxHeight="120"
-                                                EditorMinWidth="0"/>
+                                                EditorMinWidth="0">
+                    <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding Magazyn}" 
+                                                             AutoGenerateColumns="True" 
+                                                             ShowColumnHeaders="False" 
+                                                             ColumnWidth="*"
+                                                             IsReadOnly="True"/>
+                    </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                </telerik:RadMultiColumnComboBox>
                 <telerik:RadToggleButton Grid.Row="0" Grid.Column="6" Margin="5">Auto zaznaczenie</telerik:RadToggleButton>
                 <telerik:RadToggleButton Grid.Row="1" Grid.Column="6" Margin="5">Auto wyliczanie ilości</telerik:RadToggleButton>
                 <telerik:RadToggleButton Grid.Row="1" Grid.Column="7" Margin="5">Kolumny</telerik:RadToggleButton>

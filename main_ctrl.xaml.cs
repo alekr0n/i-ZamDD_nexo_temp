@@ -21,6 +21,7 @@ namespace TelerikWpfApp3
         public main_ctrl()
         {
             InitializeComponent();
+            DataContext = new DataBase();
         }
 
         private void RadButtonClik(object sender, System.Windows.RoutedEventArgs e)
