@@ -5,7 +5,7 @@
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
                 xmlns:local="clr-namespace:TelerikWpfApp3"
-                Title="i-ZamDD nexo" Height="601" Width="1280" ResizeMode="CanResizeWithGrip">
+                Title="i-ZamDD nexo" ResizeMode="CanResizeWithGrip">
     <Grid>
         <local:main_ctrl></local:main_ctrl>
     </Grid>

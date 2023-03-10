@@ -71,14 +71,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data.cs" />
+    <Compile Include="Grupa.cs" />
     <Compile Include="main_ctrl.xaml.cs">
       <DependentUpon>main_ctrl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyComboBoxList.cs" />
     <Compile Include="test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl2.xaml.cs">
+      <DependentUpon>UserControl2.xaml</DependentUpon>
     </Compile>
     <Page Include="ctr_control.xaml">
       <SubType>Designer</SubType>
@@ -107,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,10 +6,20 @@
              xmlns:local="clr-namespace:TelerikWpfApp3"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1440">
+    <UserControl.Resources>
+        <local:MyComboBoxList x:Key="MyComboBoxList1"/>
+
+        <DataTemplate x:Key="GrupaSearch">
+            <StackPanel>
+                <TextBlock Text="{Binding Nazwa}"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="65"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
@@ -30,9 +40,9 @@
                            VerticalAlignment="Center">
                     Profil:
                 </TextBlock>
-                <ComboBox Grid.Column="1" Margin="5">
+                <telerik:RadComboBox Grid.Column="1" Margin="5">
                     <TextBlock>Domyślny</TextBlock>
-                </ComboBox>
+                </telerik:RadComboBox>
                 <CheckBox Grid.Column="2" 
                           VerticalAlignment="Center"
                           Margin="3 0 0 0">
@@ -43,19 +53,20 @@
                 <Button Grid.Column="5" Margin="0 5 0 5">Popraw</Button>
                 <Button Grid.Column="6" Margin="0 5 0 5">Zapisz</Button>
                 <Button Grid.Column="7" Margin="0 5 0 5">Usuń</Button>
-                <ComboBox Grid.Column="8" 
+                <telerik:RadComboBox Grid.Column="8" 
                           HorizontalAlignment="Right"
-                          Width="75"
-                          Text="Ustawienia"
+                          Width="85"
+                          EmptyText="Ustawienia"
                           Margin="5">
                     <TextBlock>Zapisz</TextBlock>
                     <TextBlock>Wczytaj</TextBlock>
                     <TextBlock>Domyślne</TextBlock>
-                </ComboBox>
+                </telerik:RadComboBox>
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <Grid>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="45"/>
                     <ColumnDefinition Width="177"/>
@@ -78,14 +89,27 @@
                 <TextBlock Grid.Row="1" Grid.Column="0" Margin="5 0 0 0"
                            VerticalAlignment="Center">Cecha:</TextBlock>
                 <telerik:RadMultiColumnComboBox Grid.Row="0" Grid.Column="1" Margin="5"
+                                                NullText="Wybierz grupę..."
+                                                x:Name="grupaComboBox"
+                                                
                                                 SelectionMode="Multiple"
                                                 AutoCompleteMode="SuggestAppend"
                                                 KeepDropDownOpen="False"
                                                 DropDownWidth="170"
                                                 DropDownMinHeight="30"
                                                 DropDownMaxHeight="120"
-                                                EditorMinWidth="0"/>
+                                                EditorMinWidth="0">
+                    <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                        <telerik:GridViewItemsSourceProvider ItemsSource="{Binding GrupaList}" AutoGenerateColumns="False">
+                            <telerik:GridViewItemsSourceProvider.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Nazwa}" Header=""/>
+                            </telerik:GridViewItemsSourceProvider.Columns>
+                            
+                        </telerik:GridViewItemsSourceProvider>
+                    </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                </telerik:RadMultiColumnComboBox>
                 <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="1" Margin="5"
+                                                NullText="Wybierz cechę..."
                                                 SelectionMode="Multiple"
                                                 AutoCompleteMode="SuggestAppend"
                                                 KeepDropDownOpen="False"
@@ -101,6 +125,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right">Producent:</TextBlock>
                 <telerik:RadMultiColumnComboBox Grid.Row="0" Grid.Column="3" Margin="5"
+                                                NullText="Wybierz dostawcę..."
                                                 SelectionMode="Multiple"
                                                 AutoCompleteMode="SuggestAppend"
                                                 KeepDropDownOpen="False"
@@ -109,6 +134,7 @@
                                                 DropDownMaxHeight="120"
                                                 EditorMinWidth="0"/>
                 <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="3" Margin="5"
+                                                NullText="Wybierz producenta..."
                                                 SelectionMode="Multiple"
                                                 AutoCompleteMode="SuggestAppend"
                                                 KeepDropDownOpen="False"
@@ -123,7 +149,8 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right">Magazyn:</TextBlock>
                 <telerik:RadMultiColumnComboBox Grid.Row="0" Grid.Column="5" Margin="5"
-                          SelectionMode="Multiple"
+                                                NullText="Wybierz flagę..."
+                                                SelectionMode="Multiple"
                                                 AutoCompleteMode="SuggestAppend"
                                                 KeepDropDownOpen="False"
                                                 DropDownWidth="170"
@@ -131,6 +158,7 @@
                                                 DropDownMaxHeight="120"
                                                 EditorMinWidth="0"/>
                 <telerik:RadMultiColumnComboBox Grid.Row="1" Grid.Column="5" Margin="5"
+                                                NullText="Wybierz magazyn..."
                                                 SelectionMode="Multiple"
                                                 AutoCompleteMode="SuggestAppend"
                                                 KeepDropDownOpen="False"
@@ -188,5 +216,59 @@
                 </Button>
             </Grid>
         </StackPanel>
+        <telerik:RadGridView Grid.Row="2"
+                             RowIndicatorVisibility="Collapsed"
+                             IsReadOnly="True"
+                             ShowColumnSortIndexes="True"
+                             AutoGenerateColumns="False"
+                             CanUserFreezeColumns="False"
+                             CanUserResizeColumns="False"
+                             EnableMouseWheelScaling="True">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="25"/>
+                <telerik:GridViewCheckBoxColumn Header="" 
+                                                        Width="65" 
+                                                        HeaderTextAlignment="Center"
+                                                        TextAlignment="Center"/>
+                <telerik:GridViewDataColumn Header="Grupa" 
+                                                    Width="150" 
+                                                    HeaderTextAlignment="Left"
+                                                    TextAlignment="Left"/>
+                <telerik:GridViewDataColumn Header="Symbol"
+                                                    Width="150" 
+                                                    HeaderTextAlignment="Left"
+                                                    TextAlignment="Left"/>
+                <telerik:GridViewDataColumn Header="Nazwa" 
+                                                    Width="150" 
+                                                    HeaderTextAlignment="Left"
+                                                    TextAlignment="Left"/>
+                <telerik:GridViewDataColumn Header="JMZ" 
+                                                    Width="150"
+                                                    HeaderTextAlignment="Left"
+                                                    TextAlignment="Left"/>
+                <telerik:GridViewDataColumn Header="Stan"
+                                                    Width="150" 
+                                                    HeaderTextAlignment="Right"
+                                                    TextAlignment="Right"/>
+                <telerik:GridViewDataColumn Header="Stan MIN"
+                                                    Width="150" 
+                                                    HeaderTextAlignment="Right"
+                                                    TextAlignment="Right"/>
+                <telerik:GridViewDataColumn Header="Ilość do zamówienia" 
+                                                Width="150" 
+                                                HeaderTextAlignment="Right"
+                                                TextAlignment="Right"/>
+                <telerik:GridViewDataColumn Header="Dostawca" 
+                                                Width="150" 
+                                                HeaderTextAlignment="Right"
+                                                TextAlignment="Right"/>
+                <telerik:GridViewDataColumn Header="Magazyn"
+                                            Width="150*"
+                                            HeaderTextAlignment="Left"
+                                            TextAlignment="Left"/>
+
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
     </Grid>
 </UserControl>

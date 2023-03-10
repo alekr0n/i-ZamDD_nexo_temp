@@ -11,8 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="500"/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="260"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -103,6 +102,7 @@
                                                 EditorMinWidth="0"/>
                 <telerik:RadGridView Grid.Row="2" Grid.ColumnSpan="6"
                                      Width="785"
+                                     Margin="0 0 -74 0"
                                      RowIndicatorVisibility="Collapsed"
                                      IsReadOnly="True"
                                      ShowColumnSortIndexes="True"
@@ -149,10 +149,51 @@
                                                 TextAlignment="Center"/>
 
                     </telerik:RadGridView.Columns>
-                    
+
                 </telerik:RadGridView>
             </Grid>
         </telerik:GroupBox>
-
+        <StackPanel Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="190"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadButton Grid.Column="0"
+                                       Margin="10 5 15 5"
+                                       >Dodaj kolumnę</telerik:RadButton>
+                    <telerik:RadButton Grid.Column="1"
+                                       Margin="15 5 10 5"
+                                       >Przywróć domyślne</telerik:RadButton>
+                </Grid>
+                <Border Grid.Column="0" Grid.Row="1" BorderBrush="Black"/>
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    
+                </Grid>
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>
